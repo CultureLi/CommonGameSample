@@ -386,6 +386,7 @@
     <Compile Include="Assets\GameFramework\Resource\LoadSceneFailureCallback.cs" />
     <Compile Include="Assets\GameFramework\Utility\Utility.Converter.cs" />
     <Compile Include="Assets\GameFramework\Fsm\FsmBase.cs" />
+    <Compile Include="Assets\GameFramework\Base\ModuleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -1095,6 +1096,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="GameEngine.Runtime.csproj">
+      <Project>{29FB3E02-80A0-739C-ED1A-56A14464E3D2}</Project>
+      <Name>GameEngine.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
