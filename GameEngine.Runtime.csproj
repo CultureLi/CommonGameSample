@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{29FB3E02-80A0-739C-ED1A-56A14464E3D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -57,17 +56,38 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameEngine\Runtime\Module\ModuleBase.cs" />
-    <Compile Include="Assets\GameEngine\Runtime\ModuleComponent\ModuleComponentBase.cs" />
-    <Compile Include="Assets\GameEngine\Runtime\Module\ModuleManager.cs" />
-    <Compile Include="Assets\GameEngine\Runtime\Module\Event\EventModule.cs" />
-    <Compile Include="Assets\GameEngine\Runtime\Module\Event\EventBase.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\IReference.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Module\Event\EventHandlers.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\ReferencePool.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\ReferencePool.ReferenceCollection.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Event\EventBase.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\ModuleBase.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Event\EventModule.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\ReferencePoolInfo.cs" />
-    <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\IReference.cs" />
-    <Compile Include="Assets\GameEngine\Runtime\ModuleComponent\Event\EventModuleComponent.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\ModuleManager.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\SingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\Singleton.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Timer\TimerInfo.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Timer\TimerModule.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Fsm\FsmState.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Fsm\FsmBase.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Fsm\IFsmManager.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Fsm\Fsm.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Fsm\FsmModule.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Fsm\IFsm.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\Variable\Variable.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\Variable\GenericVariable.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\DataStruct\TypeNamePair.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Procedure\IProcedureManager.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Procedure\ProcedureModule.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Procedure\ProcedureBase.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Assembly.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\Log\Log.ILogHelper.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\Log\Log.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\Log\LogLevel.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Text.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Base\Log\DefaultLogHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameEngine\Runtime\GameEngine.Runtime.asmdef" />
@@ -750,7 +770,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\GameEngine\Runtime\Launcher\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

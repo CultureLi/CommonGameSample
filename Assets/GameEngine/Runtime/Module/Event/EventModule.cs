@@ -14,14 +14,14 @@ namespace GameEngine.Runtime.Module.Event
             }
         }
         // 事件类型和处理函数
-        private Dictionary<Type, IEventHandlers> eventHandlers = new();
+        private Dictionary<Type, IEventHandlers> m_EventHandlers = new();
         //事件队列
-        private Queue<EventBase> eventQueue = new();
+        private Queue<EventBase> m_EventQueue = new();
 
         public void Init(object[] args)
         {
-            eventHandlers.Clear();
-            eventQueue.Clear();
+            m_EventHandlers.Clear();
+            m_EventQueue.Clear();
         }
 
         /// <summary>
@@ -80,23 +80,23 @@ namespace GameEngine.Runtime.Module.Event
         /// <param name="e"></param>
         public void BroadCastAsync<T>(T e) where T : EventBase, IReference, new()
         {
-            eventQueue.Enqueue(e);
+            m_EventQueue.Enqueue(e);
         }
 
         public void BroadCastAsync<T>(Action<T> initFun) where T : EventBase, IReference, new()
         {
             var e = EventBase.Acquire<T>();
             initFun?.Invoke(e);
-            eventQueue.Enqueue(e);
+            m_EventQueue.Enqueue(e);
         }
 
         private EventHandlers<T> CreateHandlers<T>() where T : EventBase, IReference, new()
         {
             var type = typeof(T);
-            if (!eventHandlers.TryGetValue(type, out var handlers))
+            if (!m_EventHandlers.TryGetValue(type, out var handlers))
             {
                 handlers = new EventHandlers<T>();
-                eventHandlers[type] = handlers;
+                m_EventHandlers[type] = handlers;
             }
             return (EventHandlers<T>)handlers;
         }
@@ -104,29 +104,29 @@ namespace GameEngine.Runtime.Module.Event
         private EventHandlers<T> GetHandlers<T>() where T : EventBase, IReference, new()
         {
             var type = typeof(T);
-            eventHandlers.TryGetValue(type, out var handlers);
+            m_EventHandlers.TryGetValue(type, out var handlers);
             return (EventHandlers<T>)handlers;
         }
 
         private IEventHandlers GetHanlders(Type type)
         {
-            eventHandlers.TryGetValue(type, out var handlers);
+            m_EventHandlers.TryGetValue(type, out var handlers);
             return handlers;
         }
 
         public override void Update(float elapseSeconds, float realElapseSeconds)
         {
-            while(eventQueue.Count > 0)
+            while(m_EventQueue.Count > 0)
             {
-                var e = eventQueue.Dequeue();
+                var e = m_EventQueue.Dequeue();
                 BroadCast(e.GetType(),e);
             }
         }
 
         public override void Shutdown()
         {
-            eventHandlers.Clear();
-            eventQueue.Clear();
+            m_EventHandlers.Clear();
+            m_EventQueue.Clear();
         }
     }
 }

@@ -57,9 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameMain\Runtime\Launcher\Launcher.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Builtin.cs" />
     <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Custom.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Global\GModule.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Builtin.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureInit.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureCheckVersion.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureHotUpdate.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedurePreload.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureLogin.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureEnterScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameMain\Runtime\GameMain.Runtime.asmdef" />
