@@ -1,8 +1,9 @@
 ﻿using GameEngine.Runtime.Procedure;
 using ProcedureOwner = GameEngine.Runtime.Fsm.IFsm<GameEngine.Runtime.Procedure.IProcedureManager>;
-namespace GameMain.Runtime.Procedure
+
+namespace GameLauncher.Runtime.Procedure
 {
-    public class ProcedureInit : ProcedureBase
+    public class ProcedurePreload : ProcedureBase
     {
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
@@ -11,15 +12,13 @@ namespace GameMain.Runtime.Procedure
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
-            // 语言配置：设置当前使用的语言，如果不设置，则默认使用操作系统语言。
-            InitLanguageSettings();
             base.OnEnter(procedureOwner);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
-            ChangeState<ProcedureCheckVersion>(procedureOwner);
+            ChangeState<ProcedureLogin>(procedureOwner);
         }
 
 
@@ -31,12 +30,6 @@ namespace GameMain.Runtime.Procedure
         protected override void OnDestroy(ProcedureOwner procedureOwner)
         {
             base.OnDestroy(procedureOwner);
-        }
-
-
-        private void InitLanguageSettings()
-        {
-            
         }
     }
 }

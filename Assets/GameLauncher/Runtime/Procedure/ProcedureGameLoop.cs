@@ -1,9 +1,9 @@
 ﻿using GameEngine.Runtime.Procedure;
 using ProcedureOwner = GameEngine.Runtime.Fsm.IFsm<GameEngine.Runtime.Procedure.IProcedureManager>;
 
-namespace GameMain.Runtime.Procedure
+namespace GameLauncher.Runtime.Procedure
 {
-    public class ProcedureHotUpdate : ProcedureBase
+    public class ProcedureGameLoop : ProcedureBase
     {
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
@@ -19,7 +19,8 @@ namespace GameMain.Runtime.Procedure
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
-            ChangeState<ProcedurePreload>(procedureOwner);
+
+            
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6EA778CC-829E-E6E1-8B6B-2A4A006CEFF7}</ProjectGuid>
+    <ProjectGuid>{36ED1937-BF34-58BF-1CF3-4AB3618D5CC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>GameMain.Runtime</AssemblyName>
+    <AssemblyName>GameLauncher.Runtime</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -56,13 +56,17 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameMain\Runtime\Launcher\Launcher.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Launcher\Launcher.Init.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Custom.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Builtin.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Launcher.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Procedure\ProcedureLogin.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Procedure\ProcedureGameLoop.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Procedure\ProcedureHotUpdate.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Procedure\ProcedureLoadingScene.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Procedure\ProcedurePreload.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Procedure\ProcedureCheckVersion.cs" />
+    <Compile Include="Assets\GameLauncher\Runtime\Procedure\ProcedureStart.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\GameMain\Runtime\GameMain.Runtime.asmdef" />
+    <None Include="Assets\GameLauncher\Runtime\GameLauncher.Runtime.asmdef" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

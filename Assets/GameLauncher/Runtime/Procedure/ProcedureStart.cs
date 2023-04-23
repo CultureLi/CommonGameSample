@@ -1,11 +1,9 @@
 ﻿using GameEngine.Runtime.Procedure;
 using ProcedureOwner = GameEngine.Runtime.Fsm.IFsm<GameEngine.Runtime.Procedure.IProcedureManager>;
-
-namespace GameMain.Runtime.Procedure
+namespace GameLauncher.Runtime.Procedure
 {
-    public class ProcedureCheckVersion : ProcedureBase
+    public class ProcedureStart : ProcedureBase
     {
-        private bool m_HasNewVersion = false;
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
@@ -13,23 +11,17 @@ namespace GameMain.Runtime.Procedure
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
-
+            // 语言配置：设置当前使用的语言，如果不设置，则默认使用操作系统语言。
+            InitLanguageSettings();
             base.OnEnter(procedureOwner);
         }
 
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
-
-            if (m_HasNewVersion)
-            {
-                ChangeState<ProcedureHotUpdate>(procedureOwner);
-            }
-            else
-            {
-                ChangeState<ProcedurePreload>(procedureOwner);
-            }
+            ChangeState<ProcedureCheckVersion>(procedureOwner);
         }
+
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
@@ -41,6 +33,11 @@ namespace GameMain.Runtime.Procedure
             base.OnDestroy(procedureOwner);
         }
 
+
+        private void InitLanguageSettings()
+        {
+            
+        }
     }
 }
 

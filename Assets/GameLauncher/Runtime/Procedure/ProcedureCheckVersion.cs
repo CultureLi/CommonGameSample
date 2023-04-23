@@ -1,10 +1,11 @@
 ﻿using GameEngine.Runtime.Procedure;
 using ProcedureOwner = GameEngine.Runtime.Fsm.IFsm<GameEngine.Runtime.Procedure.IProcedureManager>;
 
-namespace GameMain.Runtime.Procedure
+namespace GameLauncher.Runtime.Procedure
 {
-    public class ProcedureGameLoop : ProcedureBase
+    public class ProcedureCheckVersion : ProcedureBase
     {
+        private bool m_HasNewVersion = false;
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
@@ -20,7 +21,14 @@ namespace GameMain.Runtime.Procedure
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            
+            if (m_HasNewVersion)
+            {
+                ChangeState<ProcedureHotUpdate>(procedureOwner);
+            }
+            else
+            {
+                ChangeState<ProcedurePreload>(procedureOwner);
+            }
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
