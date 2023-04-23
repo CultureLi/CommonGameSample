@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GameEngine.Runtime.Module.Timer
+namespace GameEngine.Runtime.Timer
 {
-    public class TimerModule:ModuleBase
+    public class TimerManager
     {
         private long m_TimeElapsed;
         private int m_TimerUid;
@@ -13,7 +13,7 @@ namespace GameEngine.Runtime.Module.Timer
 
 
         private bool m_IsPause = false;
-        public TimerModule()
+        public TimerManager()
         {
             m_TimerUid = 0;
         }
@@ -98,7 +98,7 @@ namespace GameEngine.Runtime.Module.Timer
         /// <summary>
         /// 更新
         /// </summary>
-        public override void Update(float elapseSeconds, float realElapseSeconds)
+        public void Update(float elapseSeconds, float realElapseSeconds)
         {
             InternalDeleteTimer();
 
@@ -142,7 +142,7 @@ namespace GameEngine.Runtime.Module.Timer
             }
         }
 
-        public override void Shutdown()
+        public void Release()
         {
             m_TimerDict.Clear();
             m_SortedIdDict.Clear();

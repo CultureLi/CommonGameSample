@@ -1,12 +1,12 @@
-﻿using GameEngine.Runtime.Module.Fsm;
+﻿using GameEngine.Runtime.Fsm;
 using System;
 
-namespace GameEngine.Runtime.Module.Procedure
+namespace GameEngine.Runtime.Procedure
 {
     /// <summary>
     /// 流程管理器。
     /// </summary>
-    public sealed class ProcedureModule : ModuleBase, IProcedureManager
+    public sealed class ProcedureManager : IProcedureManager
     {
         private IFsmManager m_FsmManager;
         private IFsm<IProcedureManager> m_ProcedureFsm;
@@ -14,7 +14,7 @@ namespace GameEngine.Runtime.Module.Procedure
         /// <summary>
         /// 初始化流程管理器的新实例。
         /// </summary>
-        public ProcedureModule()
+        public ProcedureManager()
         {
             m_FsmManager = null;
             m_ProcedureFsm = null;
@@ -24,7 +24,7 @@ namespace GameEngine.Runtime.Module.Procedure
         /// 获取游戏框架模块优先级。
         /// </summary>
         /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
-        public override int Priority
+        public int Priority
         {
             get
             {
@@ -69,14 +69,14 @@ namespace GameEngine.Runtime.Module.Procedure
         /// </summary>
         /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
         /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
-        public override void Update(float elapseSeconds, float realElapseSeconds)
+        public void Update(float elapseSeconds, float realElapseSeconds)
         {
         }
 
         /// <summary>
         /// 关闭并清理流程管理器。
         /// </summary>
-        public override void Shutdown()
+        public void Release()
         {
             if (m_FsmManager != null)
             {

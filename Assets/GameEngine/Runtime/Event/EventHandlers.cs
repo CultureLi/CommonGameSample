@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GameEngine.Runtime.Module.Event
+namespace GameEngine.Runtime.Event
 {
     public interface IEventHandlers
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace GameEngine.Runtime.Module.Fsm
+namespace GameEngine.Runtime.Fsm
 {
     /// <summary>
     /// 有限状态机接口。

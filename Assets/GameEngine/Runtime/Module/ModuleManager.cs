@@ -11,6 +11,15 @@ namespace GameEngine.Runtime.Module
     public class ModuleManager:Singleton<ModuleManager>
     {
         private readonly List<ModuleBase> s_Modules = new();
+        private Transform m_ModuleRoot;
+
+        public void Init()
+        {
+            var go = new GameObject("ModuleRoot");
+            GameObject.DontDestroyOnLoad(go);
+            m_ModuleRoot = go.transform;
+        }
+
         /// <summary>
         /// 所有模块轮询
         /// </summary>
@@ -20,18 +29,18 @@ namespace GameEngine.Runtime.Module
         {
             foreach (var module in s_Modules)
             {
-                module.Update(elapseSeconds, realElapseSeconds);
+                module.OnUpdate(elapseSeconds, realElapseSeconds);
             }
         }
 
         /// <summary>
         /// 关闭并清理所有模块
         /// </summary>
-        public void Shutdown()
+        public void Release()
         {
             foreach (var module in s_Modules)
             {
-                module.Shutdown();
+                module.Release();
             }
 
             s_Modules.Clear();
@@ -69,11 +78,11 @@ namespace GameEngine.Runtime.Module
         /// </summary>
         private ModuleBase CreateModule(Type moduleType)
         {
-            var module = Activator.CreateInstance(moduleType) as ModuleBase;
-            if (module == null)
-            {
-                throw new Exception($"Can not create module: {moduleType.FullName}");
-            }
+            var go = new GameObject(moduleType.Name);
+            go.transform.parent = m_ModuleRoot;
+            var module = go.AddComponent(moduleType) as ModuleBase;
+            if (module != null)
+                throw new Exception($"Create Module:{moduleType.Name} Fail !!!");
 
             var count = s_Modules.Count;
             var insertIdx = count;

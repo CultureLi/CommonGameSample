@@ -1,6 +1,6 @@
 ﻿using GameEngine.Runtime.Pool.ReferencePool;
 
-namespace GameEngine.Runtime.Module.Event
+namespace GameEngine.Runtime.Event
 {
     public class EventBase : IReference
     {

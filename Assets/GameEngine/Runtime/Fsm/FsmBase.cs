@@ -1,7 +1,7 @@
 ﻿using GameEngine.Runtime.Base;
 using System;
 
-namespace GameEngine.Runtime.Module.Fsm
+namespace GameEngine.Runtime.Fsm
 {
     /// <summary>
     /// 有限状态机基类。
@@ -102,6 +102,6 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <summary>
         /// 关闭并清理有限状态机。
         /// </summary>
-        public abstract void Shutdown();
+        public abstract void Release();
     }
 }

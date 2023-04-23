@@ -1,6 +1,6 @@
 ﻿using GameEngine.Runtime.Pool.ReferencePool;
 using System;
-namespace GameEngine.Runtime.Module.Timer
+namespace GameEngine.Runtime.Timer
 {
     public class TimerInfo:IReference
     {

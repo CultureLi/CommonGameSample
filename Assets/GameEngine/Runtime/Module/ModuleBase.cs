@@ -1,9 +1,11 @@
-﻿namespace GameEngine.Runtime.Module
+﻿using UnityEngine;
+
+namespace GameEngine.Runtime.Module
 {
     /// <summary>
     /// 模块抽象类。
     /// </summary>
-    public abstract class ModuleBase
+    public abstract class ModuleBase : MonoBehaviour
     {
         /// <summary>
         /// 获取游戏框架模块优先级。
@@ -22,11 +24,12 @@
         /// </summary>
         /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
         /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
-        public abstract void Update(float elapseSeconds, float realElapseSeconds);
-
+        public abstract void OnUpdate(float elapseSeconds, float realElapseSeconds);
+        public abstract void OnFixUpdate(float elapseSeconds, float realElapseSeconds);
+        public abstract void OnLateUpdate(float elapseSeconds, float realElapseSeconds);
         /// <summary>
         /// 关闭并清理游戏框架模块。
         /// </summary>
-        public abstract void Shutdown();
+        public abstract void Release();
     }
 }

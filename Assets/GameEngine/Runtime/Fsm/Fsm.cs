@@ -3,7 +3,7 @@ using GameEngine.Runtime.Pool.ReferencePool;
 using System;
 using System.Collections.Generic;
 
-namespace GameEngine.Runtime.Module.Fsm
+namespace GameEngine.Runtime.Fsm
 {
     /// <summary>
     /// 有限状态机。
@@ -543,7 +543,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <summary>
         /// 关闭并清理有限状态机。
         /// </summary>
-        public override void Shutdown()
+        public override void Release()
         {
             ReferencePool.Release(this);
         }

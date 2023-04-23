@@ -56,15 +56,20 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameMain\Runtime\Launcher\Launcher.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Custom.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Builtin.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureInit.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureGameLoop.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureLoadingScene.cs" />
     <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureCheckVersion.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureHotUpdate.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedurePreload.cs" />
     <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureLogin.cs" />
-    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureEnterScene.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedurePreload.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureInit.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Launcher\Launcher.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Launcher\Launcher.Init.cs" />
+    <Compile Include="Assets\GameMain\Runtime\ModuleComponent\ModuleComponentManager.cs" />
+    <Compile Include="Assets\GameMain\Runtime\ModuleComponent\BaseComponent.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Procedure\ProcedureHotUpdate.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Custom.cs" />
+    <Compile Include="Assets\GameMain\Runtime\ModuleComponent\ModuleComponentBase.cs" />
+    <Compile Include="Assets\GameMain\Runtime\Launcher\GameModule.Builtin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameMain\Runtime\GameMain.Runtime.asmdef" />

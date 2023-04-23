@@ -1,7 +1,7 @@
-﻿using GameEngine.Runtime.Module.Fsm;
+﻿using GameEngine.Runtime.Fsm;
 using System;
 
-namespace GameEngine.Runtime.Module.Procedure
+namespace GameEngine.Runtime.Procedure
 {
     /// <summary>
     /// 流程管理器接口。

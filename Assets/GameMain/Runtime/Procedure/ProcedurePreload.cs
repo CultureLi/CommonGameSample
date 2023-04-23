@@ -1,5 +1,5 @@
-﻿using GameEngine.Runtime.Module.Procedure;
-using ProcedureOwner = GameEngine.Runtime.Module.Fsm.IFsm<GameEngine.Runtime.Module.Procedure.IProcedureManager>;
+﻿using GameEngine.Runtime.Procedure;
+using ProcedureOwner = GameEngine.Runtime.Fsm.IFsm<GameEngine.Runtime.Procedure.IProcedureManager>;
 
 namespace GameMain.Runtime.Procedure
 {

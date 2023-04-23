@@ -1,11 +1,10 @@
-﻿using GameEngine.Runtime.Module.Procedure;
-using ProcedureOwner = GameEngine.Runtime.Module.Fsm.IFsm<GameEngine.Runtime.Module.Procedure.IProcedureManager>;
+﻿using GameEngine.Runtime.Procedure;
+using ProcedureOwner = GameEngine.Runtime.Fsm.IFsm<GameEngine.Runtime.Procedure.IProcedureManager>;
 
 namespace GameMain.Runtime.Procedure
 {
-    public class ProcedureEnterScene : ProcedureBase
+    public class ProcedureLoadingScene : ProcedureBase
     {
-        private bool m_HasNewVersion = false;
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
             base.OnInit(procedureOwner);
@@ -20,8 +19,7 @@ namespace GameMain.Runtime.Procedure
         protected override void OnUpdate(ProcedureOwner procedureOwner, float elapseSeconds, float realElapseSeconds)
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
-
-            
+            ChangeState<ProcedureGameLoop>(procedureOwner);
         }
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)

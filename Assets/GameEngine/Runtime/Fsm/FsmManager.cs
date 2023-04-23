@@ -1,23 +1,24 @@
 ﻿using GameEngine.Runtime.Base;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 
-namespace GameEngine.Runtime.Module.Fsm
+namespace GameEngine.Runtime.Fsm
 {
     /// <summary>
     /// 有限状态机管理器。
     /// </summary>
-    public sealed class FsmModule : ModuleBase, IFsmManager
+    public sealed class FsmManager : IFsmManager
     {
-        private readonly Dictionary<TypeNamePair, FsmBase> m_Fsms;
+        private readonly Dictionary<string, FsmBase> m_Fsms;
         private readonly List<FsmBase> m_TempFsms;
 
         /// <summary>
         /// 初始化有限状态机管理器的新实例。
         /// </summary>
-        public FsmModule()
+        public FsmManager()
         {
-            m_Fsms = new Dictionary<TypeNamePair, FsmBase>();
+            m_Fsms = new Dictionary<string, FsmBase>();
             m_TempFsms = new List<FsmBase>();
         }
 
@@ -25,7 +26,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// 获取游戏框架模块优先级。
         /// </summary>
         /// <remarks>优先级较高的模块会优先轮询，并且关闭操作会后进行。</remarks>
-        public override int Priority
+        public int Priority
         {
             get
             {
@@ -49,7 +50,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// </summary>
         /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
         /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
-        public override void Update(float elapseSeconds, float realElapseSeconds)
+        public void Update(float elapseSeconds, float realElapseSeconds)
         {
             m_TempFsms.Clear();
             if (m_Fsms.Count <= 0)
@@ -57,7 +58,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 return;
             }
 
-            foreach (KeyValuePair<TypeNamePair, FsmBase> fsm in m_Fsms)
+            foreach (KeyValuePair<string, FsmBase> fsm in m_Fsms)
             {
                 m_TempFsms.Add(fsm.Value);
             }
@@ -76,11 +77,11 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <summary>
         /// 关闭并清理有限状态机管理器。
         /// </summary>
-        public override void Shutdown()
+        public void Release()
         {
-            foreach (KeyValuePair<TypeNamePair, FsmBase> fsm in m_Fsms)
+            foreach (KeyValuePair<string, FsmBase> fsm in m_Fsms)
             {
-                fsm.Value.Shutdown();
+                fsm.Value.Release();
             }
 
             m_Fsms.Clear();
@@ -94,7 +95,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>是否存在有限状态机。</returns>
         public bool HasFsm<T>() where T : class
         {
-            return InternalHasFsm(new TypeNamePair(typeof(T)));
+            return InternalHasFsm(TypeNamePair(typeof(T)));
         }
 
         /// <summary>
@@ -109,7 +110,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("Owner type is invalid.");
             }
 
-            return InternalHasFsm(new TypeNamePair(ownerType));
+            return InternalHasFsm(TypeNamePair(ownerType));
         }
 
         /// <summary>
@@ -120,7 +121,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>是否存在有限状态机。</returns>
         public bool HasFsm<T>(string name) where T : class
         {
-            return InternalHasFsm(new TypeNamePair(typeof(T), name));
+            return InternalHasFsm(TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
@@ -136,7 +137,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("Owner type is invalid.");
             }
 
-            return InternalHasFsm(new TypeNamePair(ownerType, name));
+            return InternalHasFsm(TypeNamePair(ownerType, name));
         }
 
         /// <summary>
@@ -146,7 +147,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>要获取的有限状态机。</returns>
         public IFsm<T> GetFsm<T>() where T : class
         {
-            return (IFsm<T>)InternalGetFsm(new TypeNamePair(typeof(T)));
+            return (IFsm<T>)InternalGetFsm(TypeNamePair(typeof(T)));
         }
 
         /// <summary>
@@ -161,7 +162,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("Owner type is invalid.");
             }
 
-            return InternalGetFsm(new TypeNamePair(ownerType));
+            return InternalGetFsm(TypeNamePair(ownerType));
         }
 
         /// <summary>
@@ -172,7 +173,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>要获取的有限状态机。</returns>
         public IFsm<T> GetFsm<T>(string name) where T : class
         {
-            return (IFsm<T>)InternalGetFsm(new TypeNamePair(typeof(T), name));
+            return (IFsm<T>)InternalGetFsm(TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
@@ -188,7 +189,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("Owner type is invalid.");
             }
 
-            return InternalGetFsm(new TypeNamePair(ownerType, name));
+            return InternalGetFsm(TypeNamePair(ownerType, name));
         }
 
         /// <summary>
@@ -199,7 +200,7 @@ namespace GameEngine.Runtime.Module.Fsm
         {
             int index = 0;
             FsmBase[] results = new FsmBase[m_Fsms.Count];
-            foreach (KeyValuePair<TypeNamePair, FsmBase> fsm in m_Fsms)
+            foreach (KeyValuePair<string, FsmBase> fsm in m_Fsms)
             {
                 results[index++] = fsm.Value;
             }
@@ -219,7 +220,7 @@ namespace GameEngine.Runtime.Module.Fsm
             }
 
             results.Clear();
-            foreach (KeyValuePair<TypeNamePair, FsmBase> fsm in m_Fsms)
+            foreach (KeyValuePair<string, FsmBase> fsm in m_Fsms)
             {
                 results.Add(fsm.Value);
             }
@@ -247,7 +248,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>要创建的有限状态机。</returns>
         public IFsm<T> CreateFsm<T>(string name, T owner, params FsmState<T>[] states) where T : class
         {
-            TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
+            var typeNamePair = TypeNamePair(typeof(T), name);
             if (HasFsm<T>(name))
             {
                 throw new Exception($"Already exist FSM '{typeNamePair}'.");
@@ -280,7 +281,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>要创建的有限状态机。</returns>
         public IFsm<T> CreateFsm<T>(string name, T owner, List<FsmState<T>> states) where T : class
         {
-            TypeNamePair typeNamePair = new TypeNamePair(typeof(T), name);
+            var typeNamePair = TypeNamePair(typeof(T), name);
             if (HasFsm<T>(name))
             {
                 throw new Exception($"Already exist FSM '{typeNamePair}'.");
@@ -298,7 +299,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>是否销毁有限状态机成功。</returns>
         public bool DestroyFsm<T>() where T : class
         {
-            return InternalDestroyFsm(new TypeNamePair(typeof(T)));
+            return InternalDestroyFsm(TypeNamePair(typeof(T)));
         }
 
         /// <summary>
@@ -313,7 +314,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("Owner type is invalid.");
             }
 
-            return InternalDestroyFsm(new TypeNamePair(ownerType));
+            return InternalDestroyFsm(TypeNamePair(ownerType));
         }
 
         /// <summary>
@@ -324,7 +325,7 @@ namespace GameEngine.Runtime.Module.Fsm
         /// <returns>是否销毁有限状态机成功。</returns>
         public bool DestroyFsm<T>(string name) where T : class
         {
-            return InternalDestroyFsm(new TypeNamePair(typeof(T), name));
+            return InternalDestroyFsm(TypeNamePair(typeof(T), name));
         }
 
         /// <summary>
@@ -340,7 +341,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("Owner type is invalid.");
             }
 
-            return InternalDestroyFsm(new TypeNamePair(ownerType, name));
+            return InternalDestroyFsm(TypeNamePair(ownerType, name));
         }
 
         /// <summary>
@@ -356,7 +357,7 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("FSM is invalid.");
             }
 
-            return InternalDestroyFsm(new TypeNamePair(typeof(T), fsm.Name));
+            return InternalDestroyFsm(TypeNamePair(typeof(T), fsm.Name));
         }
 
         /// <summary>
@@ -371,15 +372,15 @@ namespace GameEngine.Runtime.Module.Fsm
                 throw new Exception("FSM is invalid.");
             }
 
-            return InternalDestroyFsm(new TypeNamePair(fsm.OwnerType, fsm.Name));
+            return InternalDestroyFsm(TypeNamePair(fsm.OwnerType, fsm.Name));
         }
 
-        private bool InternalHasFsm(TypeNamePair typeNamePair)
+        private bool InternalHasFsm(string typeNamePair)
         {
             return m_Fsms.ContainsKey(typeNamePair);
         }
 
-        private FsmBase InternalGetFsm(TypeNamePair typeNamePair)
+        private FsmBase InternalGetFsm(string typeNamePair)
         {
             FsmBase fsm = null;
             if (m_Fsms.TryGetValue(typeNamePair, out fsm))
@@ -390,16 +391,21 @@ namespace GameEngine.Runtime.Module.Fsm
             return null;
         }
 
-        private bool InternalDestroyFsm(TypeNamePair typeNamePair)
+        private bool InternalDestroyFsm(string typeNamePair)
         {
             FsmBase fsm = null;
             if (m_Fsms.TryGetValue(typeNamePair, out fsm))
             {
-                fsm.Shutdown();
+                fsm.Release();
                 return m_Fsms.Remove(typeNamePair);
             }
 
             return false;
+        }
+
+        private string TypeNamePair(Type type, string name = "")
+        {
+            return $"{type.Name}_{name}";
         }
     }
 }

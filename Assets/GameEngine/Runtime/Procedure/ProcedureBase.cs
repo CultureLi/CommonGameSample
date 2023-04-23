@@ -1,7 +1,8 @@
-﻿using GameEngine.Runtime.Module.Fsm;
-using ProcedureOwner = GameEngine.Runtime.Module.Fsm.IFsm<GameEngine.Runtime.Module.Procedure.IProcedureManager>;
+﻿using GameEngine.Runtime.Base;
+using GameEngine.Runtime.Fsm;
+using ProcedureOwner = GameEngine.Runtime.Fsm.IFsm<GameEngine.Runtime.Procedure.IProcedureManager>;
 
-namespace GameEngine.Runtime.Module.Procedure
+namespace GameEngine.Runtime.Procedure
 {
     /// <summary>
     /// 流程基类。
@@ -24,6 +25,7 @@ namespace GameEngine.Runtime.Module.Procedure
         protected internal override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
+            Log.Info($"Procedure {this.GetType()} OnEnter");
         }
 
         /// <summary>
@@ -44,6 +46,7 @@ namespace GameEngine.Runtime.Module.Procedure
         /// <param name="isShutdown">是否是关闭状态机时触发。</param>
         protected internal override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
+            Log.Info($"Procedure {this.GetType()} OnLeave");
             base.OnLeave(procedureOwner, isShutdown);
         }
 

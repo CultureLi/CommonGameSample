@@ -1,7 +1,7 @@
 using UnityEngine;
 namespace GameEngine.Runtime.Base
 {
-    public class SingletonMonoBehaviour<T> where T : Component
+    public class SingletonMonoBehaviour<T>: MonoBehaviour where T : SingletonMonoBehaviour<T>
     {
         private static T instance;
         public static T Instance

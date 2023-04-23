@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using GameEngine.Runtime.Pool.ReferencePool;
 
-namespace GameEngine.Runtime.Module.Event
+namespace GameEngine.Runtime.Event
 {
-    public class EventModule:ModuleBase
+    public class EventManager
     {
-        public override int Priority
+        public int Priority
         {
             get
             {
@@ -114,7 +114,7 @@ namespace GameEngine.Runtime.Module.Event
             return handlers;
         }
 
-        public override void Update(float elapseSeconds, float realElapseSeconds)
+        public void Update(float elapseSeconds, float realElapseSeconds)
         {
             while(m_EventQueue.Count > 0)
             {
@@ -123,7 +123,7 @@ namespace GameEngine.Runtime.Module.Event
             }
         }
 
-        public override void Shutdown()
+        public void Release()
         {
             m_EventHandlers.Clear();
             m_EventQueue.Clear();
