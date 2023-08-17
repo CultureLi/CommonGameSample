@@ -34,6 +34,32 @@ namespace GameEngine.Runtime.Module
         }
 
         /// <summary>
+        /// 所有模块轮询
+        /// </summary>
+        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
+        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        public void FixUpdate(float elapseSeconds, float realElapseSeconds)
+        {
+            foreach (var module in s_Modules)
+            {
+                module.OnFixUpdate(elapseSeconds, realElapseSeconds);
+            }
+        }
+
+        /// <summary>
+        /// 所有模块轮询
+        /// </summary>
+        /// <param name="elapseSeconds">逻辑流逝时间，以秒为单位。</param>
+        /// <param name="realElapseSeconds">真实流逝时间，以秒为单位。</param>
+        public void LateUpdate(float elapseSeconds, float realElapseSeconds)
+        {
+            foreach (var module in s_Modules)
+            {
+                module.OnLateUpdate(elapseSeconds, realElapseSeconds);
+            }
+        }
+
+        /// <summary>
         /// 关闭并清理所有模块
         /// </summary>
         public void Release()
@@ -81,7 +107,7 @@ namespace GameEngine.Runtime.Module
             var go = new GameObject(moduleType.Name);
             go.transform.parent = m_ModuleRoot;
             var module = go.AddComponent(moduleType) as ModuleBase;
-            if (module != null)
+            if (module == null)
                 throw new Exception($"Create Module:{moduleType.Name} Fail !!!");
 
             var count = s_Modules.Count;

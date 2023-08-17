@@ -1,3 +1,4 @@
+using GameEngine.Runtime.Fsm;
 using GameEngine.Runtime.Procedure;
 using System;
 using System.Collections;
@@ -9,14 +10,19 @@ namespace GameLauncher.Runtime
     public partial class Launcher : MonoBehaviour
     {
         [SerializeField]
-        private string[] m_AvailableProcedureNames = null;
+        private string[] m_AvailableProcedureTypeNames = null;
 
         [SerializeField]
-        private string m_EntranceProcedureName = null;
+        private string m_EntranceProcedureTypeName = null;
 
 
         ProcedureManager m_ProcedureMgr = new();
+        FsmManager m_FsmManager = new();
         ProcedureBase m_EntranceProcedure = null;
+        public ProcedureBase CurrentProcedure
+        {
+            get { return m_ProcedureMgr.CurrentProcedure; }
+        }
 
 
         void Awake()
@@ -24,9 +30,9 @@ namespace GameLauncher.Runtime
             ///创建所有Procedure
             List<ProcedureBase> procedureList = new();
 
-            foreach (var procedureName in m_AvailableProcedureNames)
+            foreach (var procedureName in m_AvailableProcedureTypeNames)
             {
-                Type procedureType = Type.GetType($"GameMain.Runtime.Procedure.{procedureName}");
+                Type procedureType = Type.GetType(procedureName);
                 if (procedureType == null)
                 {
                     throw new Exception($"Can not create procedure instance '{procedureName}'.");
@@ -40,7 +46,7 @@ namespace GameLauncher.Runtime
 
                 procedureList.Add(procedure);
 
-                if (m_EntranceProcedureName == procedureName)
+                if (m_EntranceProcedureTypeName == procedureName)
                 {
                     m_EntranceProcedure = procedure;
                 }
@@ -48,8 +54,9 @@ namespace GameLauncher.Runtime
 
             if (m_EntranceProcedure == null)
             {
-                throw new Exception($"entranceProcedure {m_EntranceProcedureName} not exist !!");
+                throw new Exception($"entranceProcedure {m_EntranceProcedureTypeName} not exist !!");
             }
+            m_ProcedureMgr.Initialize(m_FsmManager, procedureList.ToArray());
         }
 
 
@@ -63,11 +70,13 @@ namespace GameLauncher.Runtime
         void Update()
         {
             m_ProcedureMgr.Update(Time.deltaTime, Time.realtimeSinceStartup);
+            m_FsmManager.Update(Time.deltaTime, Time.realtimeSinceStartup);
         }
 
         void OnDestroy()
         {
             m_ProcedureMgr.Release();
+            m_FsmManager.Release();
         }
     }
 

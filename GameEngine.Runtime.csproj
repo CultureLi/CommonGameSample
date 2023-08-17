@@ -22,11 +22,11 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>UNITY_2021_3_21;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_IG;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2021_3_21;UNITY_2021_3;UNITY_2021;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;UNITY_UGP_API;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;NET_UNITY_4_8;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_IG;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -56,41 +56,64 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Json.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\IReference.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\Variable\Variable.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Fsm\FsmBase.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\ByteBuf.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\SingletonMonoBehaviour.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\SimpleJSON\SimpleJSONDotNetTypes.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\ITypeId.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Verifier.Crc32.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Fsm\Fsm.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Fsm\IFsm.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Fsm\FsmState.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Procedure\IProcedureManager.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\SimpleJSON\SimpleJSONBinary.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Procedure\ProcedureBase.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\ByteBufExtensions.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Path.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Event\EventHandlers.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\ReferencePool.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Marshal.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Json.IJsonHelper.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\ReferencePool.ReferenceCollection.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Event\EventBase.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\ShutdownType.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Encryption.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Event\EventModule.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\DataStruct\TypeNamePair.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Timer\TimerInfo.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Procedure\ProcedureManager.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Module\ModuleBase.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\Log\Log.ILogHelper.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Module\Timer\TimerModule.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Event\EventManager.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\Log\Log.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Verifier.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Text.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\Log\LogLevel.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Converter.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\Singleton.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Timer\TimerManager.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\Variable\GenericVariable.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Base\Log\DefaultLogHelper.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Compression.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\StringUtil.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\BeanBase.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Pool\ReferencePool\ReferencePoolInfo.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\SimpleJSON\SimpleJSONUnity.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Module\ModuleManager.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Random.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\SimpleJSON\SimpleJSON.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Fsm\IFsmManager.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Assembly.cs" />
-    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.cs" />
     <Compile Include="Assets\GameEngine\Runtime\Fsm\FsmManager.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.Compression.ICompressionHelper.cs" />
+    <Compile Include="Assets\GameEngine\Runtime\Utilitys\Utility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\GameEngine\Runtime\ThirdPart\LubanLib\SimpleJSON\Changelog.txt" />
     <None Include="Assets\GameEngine\Runtime\GameEngine.Runtime.asmdef" />
   </ItemGroup>
   <ItemGroup>

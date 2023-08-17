@@ -27,7 +27,7 @@ namespace GameLauncher.Runtime.Procedure
             }
             else
             {
-                ChangeState<ProcedurePreload>(procedureOwner);
+                ChangeState<ProcedureFinished>(procedureOwner);
             }
         }
 
