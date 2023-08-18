@@ -56,17 +56,8 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameLauncher\Editor\Misc\LogScriptingDefineSymbols.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\ConfigPathAttribute.cs" />
     <Compile Include="Assets\GameLauncher\Editor\Inspector\LauncherInspector.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\ScriptingDefineSymbols.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\BuildSettingsConfigPathAttribute.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\OpenFolder.cs" />
     <Compile Include="Assets\GameLauncher\Editor\Misc\Type.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\LogRedirection.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\BuildSettings.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\Help.cs" />
-    <Compile Include="Assets\GameLauncher\Editor\Misc\HelperInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameLauncher\Editor\GameLauncher.Editor.asmdef" />
