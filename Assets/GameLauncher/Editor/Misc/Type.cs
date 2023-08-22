@@ -3,7 +3,7 @@ using GameEngine.Runtime.Utilitys;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace UnityGameFramework.Editor
+namespace GameLauncher.Editor
 {
     /// <summary>
     /// 类型相关的实用函数。

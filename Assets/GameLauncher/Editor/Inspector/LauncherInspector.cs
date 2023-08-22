@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace UnityGameFramework.Editor
+namespace GameLauncher.Editor
 {
     [CustomEditor(typeof(GameLauncher.Runtime.Launcher))]
     internal sealed class LauncherInspector : InspectorBase

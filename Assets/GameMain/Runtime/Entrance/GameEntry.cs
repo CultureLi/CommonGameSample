@@ -1,4 +1,5 @@
-﻿using Bright.Serialization;
+﻿using Assets.GameMain.Runtime.Events;
+using Bright.Serialization;
 using GameEngine.Runtime.Base;
 using GameEngine.Runtime.Module;
 using System;
@@ -24,12 +25,17 @@ namespace GameMain.Runtime.Entrance
         private void Start()
         {
             //var tables = new cfg.Tables(LoadByteBuf);
-            var itemTable = new cfg.item.TbItem(LoadByteBuf("item_tbitem"));
-            UnityEngine.Debug.LogFormat("item[1].name:{0}", itemTable[10000].Name);
+            //var itemTable = new cfg.item.TbItem(LoadByteBuf("item_tbitem"));
+            //UnityEngine.Debug.LogFormat("item[1].name:{0}", itemTable[10000].Name);
             //UnityEngine.Debug.LogFormat("item[1].name:{0}", tables.TbItem[10000].Name);
             //Debug.LogFormat("bag init capacity:{0}", tables.TbItem);
 
-            UnityEngine.Debug.Log("== load succ==");
+            UnityEngine.Debug.Log("== load succ==ddddddddddd");
+
+            /*GameModule.EventModule.BroadCastAsync<LogEvent>(e =>
+            {
+                e.content = "Hello World";
+            });*/
         }
         
 
@@ -41,7 +47,6 @@ namespace GameMain.Runtime.Entrance
         private void Update()
         {
             ModuleManager.Instance.Update(Time.deltaTime,Time.realtimeSinceStartup);
-            //Log.Debug("GameUpdate ... ");
         }
 
         private void FixedUpdate()
